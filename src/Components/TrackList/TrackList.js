@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 import './TrackList.css';
-import Track from '../Track'
+import Track from '../Track/Track';
 
 class TrackList extends Component {
 
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.tracks = props.tracks
-    this.renderTracks = this.renderTracks.bind(this)
+    this.renderTracks = this.renderTracks.bind(this);
   }
 
   renderTracks() {
 
-    return this.tracks
+    return this.props.tracks
     .map(track => {
-      
+
       return (
         <Track 
           track={track} 
@@ -23,11 +22,12 @@ class TrackList extends Component {
           onAdd={this.props.onAdd}
           onRemove={this.props.onRemove}
           isRemoval={this.props.isRemoval}
-        />)
+        />);
     })
   }
 
   render() {
+
     return (
       <div className="TrackList">
         {this.renderTracks()}
