@@ -24,7 +24,7 @@ Spotify.getAccessToken = () => {
   }
 
   const baseUrl = 'https://accounts.spotify.com/authorize';
-  const clientID = '4ba6401d2e2649119facb5db33f9113b';
+  const clientID = process.env.REACT_APP_CLIENT_ID || '0';
   const redirectURI = 'http://localhost:3000/';
 
   const authorizeUrl = `${baseUrl}?response_type=token&client_id=${clientID}&redirect_uri=${redirectURI}&scope=playlist-modify-public`;
